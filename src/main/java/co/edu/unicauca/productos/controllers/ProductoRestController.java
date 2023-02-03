@@ -1,10 +1,8 @@
 package co.edu.unicauca.productos.controllers;
 
-import co.edu.unicauca.productos.models.ProductoEntity;
 import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import co.edu.unicauca.productos.services.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,13 +21,13 @@ public class ProductoRestController {
         return productoService.findAll();
     }
 
-    @GetMapping("/clientes/{id}")
+    @GetMapping("/productos/{id}")
     public ProductoDTO show(@PathVariable Integer codigo) {
         ProductoDTO objProducto = null;
         objProducto = productoService.findById(codigo);
         return objProducto;
     }
-    @PostMapping("/clientes")
+    @PostMapping("/productos")
     public ProductoDTO create(@RequestBody ProductoDTO producto) {
         ProductoDTO objProducto = null;
         objProducto =  productoService.save(producto);
